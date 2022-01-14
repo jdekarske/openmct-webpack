@@ -10,8 +10,7 @@ const webpackConfig = {
     new HtmlWebpackPlugin({
       title: 'ISAAC IUI',
     }),
-
-    // to copy openmct assets
+    // to copy openmct assets so they can be accessed with `openmct.setassetpath()`
     new CopyWebpackPlugin({
       patterns: [
         {
@@ -19,17 +18,12 @@ const webpackConfig = {
           to: 'assets'
         }
       ]
-  }),
+    }),
   ],
-  entry: {
-    index: './index.js',
-    // HelloPlugin: './include/js/openmct-plugins/HelloPlugin',
-  },
+  entry: './index.js',
   output: {
     globalObject: "this",
-    filename: '[name].js',
-    library: '[name]',
-    libraryTarget: 'umd',
+    filename: 'bundle.js',
     path: path.resolve(__dirname, 'build')
   },
   resolve: {
@@ -43,44 +37,14 @@ const webpackConfig = {
     rules: [
       {
         test: /\.m?js$/,
-        exclude: /(node_modules|bower_components)/,
+        exclude: /(node_modules)/,
         use: {
           loader: 'babel-loader',
           options: {
             presets: ['@babel/preset-env']
-            }
           }
+        }
       },
-      // {
-      //   test: /\.css$/i,
-      //   use: ['style-loader', 'css-loader'],
-      // },
-      // {
-      //   test: /\.html$/,
-      //   use: 'html-loader'
-      // },
-      // {
-      //   test: /\.(jpg|jpeg|png|svg|ico|woff2?|eot|ttf)$/,
-      //   loader: 'file-loader',
-      //   options: {
-      //     name: '[name].[ext]',
-      //     outputPath(url, resourcePath, context) {
-      //       if (/\.(jpg|jpeg|png|svg)$/.test(url)) {
-      //         return `images/${url}`;
-      //       }
-
-      //       if (/\.ico$/.test(url)) {
-      //         return `icons/${url}`;
-      //       }
-
-      //       if (/\.(woff2?|eot|ttf)$/.test(url)) {
-      //         return `fonts/${url}`;
-      //       } else {
-      //         return `${url}`;
-      //       }
-      //     }
-      //   }
-      // },
       // {
       //   test: /\.vue$/,
       //   use: 'vue-loader'
