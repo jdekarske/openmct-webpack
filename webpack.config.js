@@ -1,12 +1,12 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-// const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 const webpackConfig = {
   mode: 'development',
   plugins: [
-    // new VueLoaderPlugin(),
+    new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
       title: 'ISAAC IUI',
     }),
@@ -29,8 +29,8 @@ const webpackConfig = {
   resolve: {
     alias: {
       "@": path.join(__dirname, "src"),
-      "MCT": path.join(__dirname, "node_modules/openmct/dist")
-      // "vue": vueFile,
+      "MCT": path.join(__dirname, "node_modules/openmct"),
+      'vue$': 'vue/dist/vue.esm.js'
     }
   },
   module: {
@@ -45,10 +45,17 @@ const webpackConfig = {
           }
         }
       },
-      // {
-      //   test: /\.vue$/,
-      //   use: 'vue-loader'
-      // }
+      {
+        test: /\.vue$/,
+        use: 'vue-loader'
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'vue-style-loader',
+          'css-loader'
+        ]
+      }
     ]
   },
   devtool: 'source-map'

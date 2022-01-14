@@ -1,6 +1,6 @@
-// tabs vue component /home/guy/code/astrobee_internship/isaac_data_interface/frontend/openmct/src/plugins/tabs/components/tabs.vue
-// import Vue from 'vue';
-import TabsComponent from 'openmct/plugins/tabs/components/tabs.vue';
+// tabs vue component openmct/src/plugins/tabs/components/tabs.vue
+import Vue from 'vue';
+import TabsComponent from 'MCT/src/plugins/tabs/components/tabs.vue';
 
 // I want to show the tab but also log it.
 Vue.config.optionMergeStrategies.myOption = (toVal, fromVal) => {
@@ -24,7 +24,7 @@ var TrackedTabsComponent = Vue.extend({
 })
 
 
-// tabs view /home/guy/code/astrobee_internship/isaac_data_interface/frontend/openmct/src/plugins/tabs/tabs.js
+// tabs view openmct/src/plugins/tabs/tabs.js
 function TrackedTabs(openmct) {
     return {
         key: 'trackedtabs',
