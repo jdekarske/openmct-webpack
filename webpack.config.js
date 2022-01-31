@@ -2,11 +2,15 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 const webpackConfig = {
   mode: 'development',
   plugins: [
     new VueLoaderPlugin(),
+    new ESLintPlugin({
+      extensions: ['js', 'vue'],
+     }),
     new HtmlWebpackPlugin({
       title: 'ISAAC IUI',
     }),
@@ -28,23 +32,18 @@ const webpackConfig = {
   },
   resolve: {
     alias: {
-      "@": path.join(__dirname, "src"),
-      "MCT": path.join(__dirname, "node_modules/openmct"),
+      "MCT": path.join(__dirname, "node_modules/openmct/dist/openmct.js"),
       'vue$': 'vue/dist/vue.esm.js'
     }
   },
   module: {
     rules: [
-      {
-        test: /\.m?js$/,
-        exclude: /(node_modules)/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env']
-          }
-        }
-      },
+      // need this to import from openmct
+      // {
+      //   test: /\.m?js$/,
+      //   exclude: /(node_modules)/,
+      //   use: ['babel-loader', 'eslint-loader']
+      // },
       {
         test: /\.vue$/,
         use: 'vue-loader'
@@ -55,7 +54,7 @@ const webpackConfig = {
           'vue-style-loader',
           'css-loader'
         ]
-      }
+      },
     ]
   },
   devtool: 'source-map'

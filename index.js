@@ -1,18 +1,17 @@
-import openmct from 'MCT/dist/openmct'
-import HelloPlugin from './include/js/HelloPlugin'
-import TrackedTabsPlugin from './include/js/tracked-tabs-view';
+import openmct from 'MCT'
+// import TrackedTabsPlugin from './include/js/tracked-tabs-view';
 
 const ONE_SECOND = 1000;
 const THIRTY_SECONDS = 30 * ONE_SECOND;
 const ONE_MINUTE = 60 * ONE_SECOND;
 const THIRTY_MINUTES = 30 * ONE_MINUTE;
 
+// openmct.install(new TrackedTabsPlugin())
+
 openmct.setAssetPath("assets");
-openmct.install(new HelloPlugin());
 openmct.install(new openmct.plugins.LocalStorage());
 openmct.install(new openmct.plugins.Espresso());
 openmct.install(new openmct.plugins.MyItems());
-openmct.install(new TrackedTabsPlugin())
 openmct.install(openmct.plugins.UTCTimeSystem());
 openmct.install(openmct.plugins.Conductor({
     menuOptions: [
