@@ -19,7 +19,8 @@ module.exports = {
         }
     },
     plugins: [
-        'vue'
+        'vue',
+        '@babel'
     ],
     rules: {
     }

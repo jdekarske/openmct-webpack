@@ -4,6 +4,8 @@
   "description": "Building an OpenMCT app using webpack",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint --cache \"include/**/*.js\"",
+    "lint:fix": "eslint --cache --fix \"include/**/*.js\"",
     "clean": "rm -rf ./build ./node_modules; rm package-lock.json",
     "build": "webpack",
     "start": "webpack serve"
@@ -19,6 +21,7 @@
   "devDependencies": {
     "@babel/core": "^7.16.7",
     "@babel/eslint-parser": "^7.16.5",
+    "@babel/eslint-plugin": "^7.16.5",
     "@babel/preset-env": "^7.16.8",
     "babel-loader": "^8.2.3",
     "babel-preset-vue": "^2.0.2",
