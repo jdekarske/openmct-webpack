@@ -9,8 +9,9 @@ module.exports = {
         'eslint:recommended'
     ],
     // need vue in here somewhere
-    parser: "@babel/eslint-parser",
+    parser: "vue-eslint-parser",
     parserOptions: {
+        // parser: "babel-eslint",
         allowImportExportEverywhere: true,
         ecmaVersion: 6,
         requireConfigFile: false,
@@ -23,5 +24,6 @@ module.exports = {
         '@babel'
     ],
     rules: {
+        'vue/multi-word-component-names': 0,
     }
 }

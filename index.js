@@ -1,12 +1,11 @@
 import openmct from 'MCT'
+import HelloWorld from './include/js/HelloPlugin'
 // import TrackedTabsPlugin from './include/js/tracked-tabs-view';
 
 const ONE_SECOND = 1000;
 const THIRTY_SECONDS = 30 * ONE_SECOND;
 const ONE_MINUTE = 60 * ONE_SECOND;
 const THIRTY_MINUTES = 30 * ONE_MINUTE;
-
-// openmct.install(new TrackedTabsPlugin())
 
 openmct.setAssetPath("assets");
 openmct.install(new openmct.plugins.LocalStorage());
@@ -34,4 +33,8 @@ openmct.install(openmct.plugins.Conductor({
         }
     ]
 }));
+
+openmct.install(new HelloWorld());
+// openmct.install(new TrackedTabsPlugin())
+
 document.addEventListener('DOMContentLoaded', () => openmct.start(document.body));
