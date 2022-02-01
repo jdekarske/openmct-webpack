@@ -6,6 +6,7 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 
 const webpackConfig = {
   mode: 'development',
+  devtool: 'inline-source-map',
   plugins: [
     new VueLoaderPlugin(),
     new ESLintPlugin({
@@ -59,7 +60,6 @@ const webpackConfig = {
       },
     ]
   },
-  devtool: 'source-map'
 };
 
 module.exports = webpackConfig;
