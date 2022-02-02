@@ -1,6 +1,6 @@
 // tabs vue component openmct/src/plugins/tabs/components/tabs.vue
 import Vue from 'vue';
-import TabsComponent from 'MCT/src/plugins/tabs/components/tabs.vue';
+import TabsComponent from 'openmct/src/plugins/tabs/components/tabs.vue';
 
 // I want to show the tab but also log it.
 Vue.config.optionMergeStrategies.myOption = (toVal, fromVal) => {
