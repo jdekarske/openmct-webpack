@@ -1,6 +1,6 @@
-import openmct from 'MCT'
-import HelloWorld from './include/js/HelloPlugin'
-import ROSView from './include/js/rosView'
+import openmct from 'openmct'
+import HelloPlugin from './include/js/HelloPlugin'
+import ROSViewPlugin from './include/js/ROSViewPlugin'
 // import TrackedTabsPlugin from './include/js/tracked-tabs-view';
 
 const ONE_SECOND = 1000;
@@ -35,8 +35,8 @@ openmct.install(openmct.plugins.Conductor({
     ]
 }));
 
-openmct.install(new HelloWorld());
-openmct.install(new ROSView());
+openmct.install(HelloPlugin);
+openmct.install(ROSViewPlugin);
 // openmct.install(new TrackedTabsPlugin())
 
 document.addEventListener('DOMContentLoaded', () => openmct.start(document.body));
